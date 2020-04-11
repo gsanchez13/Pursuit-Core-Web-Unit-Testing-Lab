@@ -29,10 +29,10 @@ function isOdd(num) {
 // * That verify that for different inputs this function's return value is correct 
 
 function numberOfDigits(num) {
-  if(typeof(num) === 'number' && !isNaN(num)){
-  return Math.abs(num).toString().length
+  if (typeof (num) === 'number' && !isNaN(num)) {
+    return Math.abs(num).toString().length
   }
-  else if(num === ""){
+  else if (num === "") {
     return num.length
   }
   return null
@@ -46,12 +46,12 @@ function numberOfDigits(num) {
 // * That verify that for different inputs this function's return value is correct 
 
 function disemvowel(str) {
-  if(typeof(str) !== "string"){
+  if (typeof (str) !== "string") {
     return undefined
   }
   let outputStr = ""
   for (let char of str) {
-    if(typeof(char) === "number"){
+    if (typeof (char) === "number") {
       outputStr += char
     }
     const lowercasedChar = char.toLowerCase()
@@ -69,15 +69,23 @@ function disemvowel(str) {
 // * That verify that for different inputs this function's return value is correct 
 
 function secondSmallest(arr) {
+  if(!Array.isArray(arr)){
+    return undefined;
+  }
+  else if(arr.length === 1){
+    return (typeof (arr[0]) === "number" && !isNaN(arr[0])) ? arr[0] : undefined
+  }
   let min = Infinity
   let secondSmallest = Infinity
   for (let num of arr) {
-    if (num < min) {
-      let temp = min
-      min = num
-      secondSmallest = temp
-    } else if (num < secondSmallest) {
-      secondSmallest = num
+    if (typeof (num) === "number" && !isNaN(num)) {
+      if (num < min) {
+        let temp = min
+        min = num
+        secondSmallest = temp
+      } else if (num < secondSmallest) {
+        secondSmallest = num
+      }
     }
   }
   return secondSmallest
