@@ -1,0 +1,23 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "[![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)",
+  "main": "labFunctions.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsanchez13/Pursuit-Core-Web-Unit-Testing-Lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsanchez13/Pursuit-Core-Web-Unit-Testing-Lab/issues"
+  },
+  "homepage": "https://github.com/gsanchez13/Pursuit-Core-Web-Unit-Testing-Lab#readme",
+  "devDependencies": {
+    "jest": "^25.3.0"
+  }
+}
