@@ -16,7 +16,10 @@
 // "hi"  => false
 
 function isOdd(num) {
-  return num % 2 === 1
+  if (typeof (num) !== "number" || isNaN(num)) {
+    return false
+  }
+  return Math.abs(num) % 2 === 1
 }
 
 // 2.
