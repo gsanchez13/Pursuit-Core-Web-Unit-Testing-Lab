@@ -20,7 +20,7 @@ function isOdd(num) {
     return false
   }
   return Math.abs(num) % 2 === 1
-}
+};
 
 // 2.
 // Write a function called numberOfDigits that returns how many digits are in a given number
@@ -30,13 +30,13 @@ function isOdd(num) {
 
 function numberOfDigits(num) {
   if(typeof(num) === 'number' && !isNaN(num)){
-  return num.toString().length
+  return Math.abs(num).toString().length
   }
   else if(num === ""){
     return num.length
   }
   return null
-}
+};
 
 // 3.
 // Write a function called disemvowel that removes all of the vowels from a string.
@@ -46,8 +46,14 @@ function numberOfDigits(num) {
 // * That verify that for different inputs this function's return value is correct 
 
 function disemvowel(str) {
+  if(typeof(str) !== "string"){
+    return undefined
+  }
   let outputStr = ""
   for (let char of str) {
+    if(typeof(char) === "number"){
+      outputStr += char
+    }
     const lowercasedChar = char.toLowerCase()
     if (lowercasedChar !== "a" && lowercasedChar !== "e" && lowercasedChar !== "i" && lowercasedChar !== "o" && lowercasedChar != "u") {
       outputStr += char
@@ -146,6 +152,7 @@ n2.next = n3
 module.exports = {
   isOdd,
   numberOfDigits,
+  disemvowel,
   secondSmallest,
   getLocations,
   onlyOddStrings,
