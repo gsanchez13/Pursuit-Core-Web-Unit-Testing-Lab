@@ -29,7 +29,13 @@ function isOdd(num) {
 // * That verify that for different inputs this function's return value is correct 
 
 function numberOfDigits(num) {
+  if(typeof(num) === 'number' && !isNaN(num)){
   return num.toString().length
+  }
+  else if(num === ""){
+    return num.length
+  }
+  return null
 }
 
 // 3.
