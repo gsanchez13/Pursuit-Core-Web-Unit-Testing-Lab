@@ -85,3 +85,45 @@ describe("Tests secondSmallest function", () => {
         expect(secondSmallest({ 1: "1", 2: "2", 3: "3" })).toBeUndefined();
     })
 });
+describe("Tests getLocation function", () => {
+    test("Checks if function gets location value correctly", () => {
+        let countries1 = [
+            {
+                location: "Mexico",
+                population: 128
+            },
+            {
+                location: "Argentina",
+                population: 45
+            },
+            {
+                location: "Spain",
+                population: 46
+            }
+        ];
+        expect(getLocations(countries1)).toEqual(["Mexico", "Argentina", "Spain"]);
+    });
+    test("Checks if location keys are missing within elements", () => {
+        let countries2 = [
+            {
+                location: "Mexico",
+                population: 128
+            },
+            {
+                population: 45
+            },
+            {
+                location: "Spain",
+                population: 46
+            }
+        ];
+    expect(getLocations(countries2)).toEqual(["Mexico", "Spain"])
+    });
+    test("Checks if argument are not appropriate data types", () => {
+        let countries3 = [["location", "mexico"], ["population", 128]];
+        let countries4 = {location: "mexico", population: 128};
+        expect(getLocations(countries3)).toBeNull();
+        expect(getLocations(countries4)).toBeUndefined();
+
+    })
+});

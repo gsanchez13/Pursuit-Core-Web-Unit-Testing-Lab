@@ -69,10 +69,10 @@ function disemvowel(str) {
 // * That verify that for different inputs this function's return value is correct 
 
 function secondSmallest(arr) {
-  if(!Array.isArray(arr)){
+  if (!Array.isArray(arr)) {
     return undefined;
   }
-  else if(arr.length === 1){
+  else if (arr.length === 1) {
     return (typeof (arr[0]) === "number" && !isNaN(arr[0])) ? arr[0] : undefined
   }
   let min = Infinity
@@ -104,9 +104,17 @@ function secondSmallest(arr) {
 // Write a few tests
 // * That verify that for different inputs this function's return value is correct 
 function getLocations(objArr) {
-  let finalArr = []
+  if (!Array.isArray(objArr)) {
+    return undefined;
+  }
+  let finalArr = [];
   for (let obj of objArr) {
-    finalArr.push(obj.location)
+    if (obj.location) {
+      finalArr.push(obj.location);
+    }
+  }
+  if (finalArr.length === 0) {
+    return null;
   }
   return finalArr
 }
