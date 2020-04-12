@@ -117,13 +117,32 @@ describe("Tests getLocation function", () => {
                 population: 46
             }
         ];
-    expect(getLocations(countries2)).toEqual(["Mexico", "Spain"])
+        expect(getLocations(countries2)).toEqual(["Mexico", "Spain"])
     });
     test("Checks if argument are not appropriate data types", () => {
         let countries3 = [["location", "mexico"], ["population", 128]];
-        let countries4 = {location: "mexico", population: 128};
         expect(getLocations(countries3)).toBeNull();
+        let countries4 = { location: "mexico", population: 128 };
         expect(getLocations(countries4)).toBeUndefined();
 
     })
+});
+
+describe("Tests onlyOddStrings function", () => {
+    test("Checks if function works with string inputs", () => {
+        let strArr1 = ["Hello", "my", "name", "is", "Tom"];
+        expect(onlyOddStrings(strArr1)).toEqual(["Hello", "Tom"]);
+        let strArr2 = [];
+        expect(onlyOddStrings(strArr2)).toEqual([]);
+        let strArr3 = ["Hello", 123, true, undefined, null, "Tom", "007"];
+        expect(onlyOddStrings(strArr3)).toEqual(["Hello", "Tom", "007"]);
+    })
+    test("Checks if function works with inputs not in an array", () => {
+        let strObj = {string: "Hello"};
+        expect(onlyOddStrings(strObj)).toBeUndefined();
+        expect(onlyOddStrings(null)).toBeUndefined();
+        expect(onlyOddStrings(undefined)).toBeUndefined();
+        expect(onlyOddStrings(true)).toBeUndefined();
+        expect(onlyOddStrings(12345)).toBeUndefined();
+    });
 });

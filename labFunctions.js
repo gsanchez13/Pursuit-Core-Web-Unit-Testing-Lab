@@ -126,7 +126,10 @@ function getLocations(objArr) {
 // Write a few tests
 // * That verify that for different inputs this function's return value is correct 
 function onlyOddStrings(arr) {
-  return arr.filter(str => str.length % 2 === 1)
+  if (!Array.isArray(arr)) {
+    return undefined
+  }
+  return arr.filter(str => typeof (str) === "string" && str.length % 2 === 1)
 }
 
 // 7.
